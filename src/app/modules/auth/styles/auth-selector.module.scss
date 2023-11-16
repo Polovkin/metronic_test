@@ -1,0 +1,75 @@
+$line-size: 40px;
+
+.step {
+    margin-bottom: $line-size;
+
+    &:last-child .stepNumber {
+        &:after {
+            display: none;
+        }
+    }
+}
+
+.text {
+    justify-content: space-between;
+    height: 46px;
+}
+
+.stepNumber {
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 9px;
+    border: 1px dashed rgba(255, 255, 255, 0.30);
+    background: rgba(255, 255, 255, 0.05);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px; /* 100% */
+    letter-spacing: -0.18px;
+
+    &:after {
+        content: '';
+        bottom: -32px;
+        transform: rotate(90deg);
+        position: absolute;
+        width: $line-size + 2px;
+        border: 1px dashed rgba(255, 255, 255, 0.30);
+
+        margin: 0 auto;
+    }
+
+
+}
+
+.stepTextTitle {
+    opacity: 0.7;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 100% */
+    letter-spacing: -0.2px;
+}
+
+.stepTextDescription {
+    opacity: 0.5;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 14px; /* 107.692% */
+}
+
+.active {
+    .stepTextTitle {
+        opacity: 1;
+    }
+
+    .stepNumber {
+        background: #17c653;
+    }
+}
+

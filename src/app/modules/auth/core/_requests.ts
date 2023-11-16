@@ -8,12 +8,29 @@ export const LOGIN_URL = `${API_URL}/login`;
 export const REGISTER_URL = `${API_URL}/register`;
 export const REQUEST_PASSWORD_URL = `${API_URL}/forgot_password`;
 
+const mockUser: UserModel = {
+    email: "mock@mail.ua",
+    first_name: "Mikle",
+    id: 0,
+    last_name: "Polovkin",
+    password: undefined,
+    username: "Polovkin"
+}
+
+
 // Server should return AuthModel
 export function login(email: string, password: string) {
-  return axios.post<AuthModel>(LOGIN_URL, {
-    email,
-    password,
-  });
+    console.log(email);
+    console.log(password);
+    /*return axios.post<AuthModel>(LOGIN_URL, {
+      email,
+      password,
+    });*/
+    return Promise.resolve({
+        data: {  api_token: "token",
+            refreshToken: 'refreshToken'}
+
+    })
 }
 
 // Server should return AuthModel
@@ -24,13 +41,18 @@ export function register(
   password: string,
   password_confirmation: string
 ) {
-  return axios.post(REGISTER_URL, {
+  /*return axios.post(REGISTER_URL, {
     email,
     first_name: firstname,
     last_name: lastname,
     password,
     password_confirmation,
-  });
+  });*/
+    return Promise.resolve({
+        data: {  api_token: "token",
+            refreshToken: 'refreshToken'}
+
+    })
 }
 
 // Server should return object => { result: boolean } (Is Email in DB)
@@ -41,7 +63,8 @@ export function requestPassword(email: string) {
 }
 
 export function getUserByToken(token: string) {
-  return axios.post<UserModel>(GET_USER_BY_ACCESSTOKEN_URL, {
+ /* return axios.post<UserModel>(GET_USER_BY_ACCESSTOKEN_URL, {
     api_token: token,
-  });
+  });*/
+  return Promise.resolve({data:mockUser});
 }
