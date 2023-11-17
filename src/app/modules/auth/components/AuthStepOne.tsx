@@ -37,8 +37,8 @@ const TypeCard: FC<TypeCardProps> = ({title,handleClick, description, icon,isAct
                 <SVG src={toAbsoluteUrl(icon)} />
             </div>
             <div>
-                <div>{title}</div>
-                <div>{description}</div>
+                <div className={styles.cartTitle}>{title}</div>
+                <div className={styles.cartDescription}>{description}</div>
             </div>
         </div>
     )

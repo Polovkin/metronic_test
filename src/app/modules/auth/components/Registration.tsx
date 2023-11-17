@@ -1,10 +1,9 @@
 
 
-import {useState, useEffect} from 'react'
+import {useState, useEffect, FC} from 'react'
 import {useFormik} from 'formik'
 import * as Yup from 'yup'
 import clsx from 'clsx'
-import {getUserByToken, register} from '../core/_requests'
 import {Link} from 'react-router-dom'
 import {toAbsoluteUrl} from '../../../../_metronic/helpers'
 import {PasswordMeterComponent} from '../../../../_metronic/assets/ts/components'
@@ -45,7 +44,11 @@ const registrationSchema = Yup.object().shape({
   acceptTerms: Yup.bool().required('You must accept the terms and conditions'),
 })
 
-export function Registration() {
+
+type Props = {
+  setCurrentStep: (index: number) => void
+}
+export const Registration:FC<Props> = ({setCurrentStep}) => {
   const [loading, setLoading] = useState(false)
   const {saveAuth, setCurrentUser} = useAuth()
   const formik = useFormik({
@@ -54,7 +57,8 @@ export function Registration() {
     onSubmit: async (values, {setStatus, setSubmitting}) => {
       setLoading(true)
       try {
-        const {data: auth} = await register(
+        setCurrentStep(2)
+        /*const {data: auth} = await register(
           values.email,
           values.firstname,
           values.lastname,
@@ -63,7 +67,7 @@ export function Registration() {
         )
         saveAuth(auth)
         const {data: user} = await getUserByToken(auth.api_token)
-        setCurrentUser(user)
+        setCurrentUser(user)*/
       } catch (error) {
         console.error(error)
         saveAuth(undefined)
@@ -153,7 +157,7 @@ export function Registration() {
             autoComplete='off'
             {...formik.getFieldProps('firstname')}
             className={clsx(
-                'form-control bg-transparent',
+                'form-control bg-transparent placeholder-gray',
                 {
                   'is-invalid': formik.touched.firstname && formik.errors.firstname,
                 },
@@ -177,7 +181,7 @@ export function Registration() {
               autoComplete='off'
               {...formik.getFieldProps('lastname')}
               className={clsx(
-                  'form-control bg-transparent',
+                  'form-control bg-transparent placeholder-gray',
                   {
                     'is-invalid': formik.touched.lastname && formik.errors.lastname,
                   },
@@ -202,7 +206,7 @@ export function Registration() {
           autoComplete='off'
           {...formik.getFieldProps('email')}
           className={clsx(
-            'form-control bg-transparent',
+            'form-control bg-transparent placeholder-gray',
             {'is-invalid': formik.touched.email && formik.errors.email},
             {
               'is-valid': formik.touched.email && !formik.errors.email,
@@ -229,7 +233,7 @@ export function Registration() {
               autoComplete='off'
               {...formik.getFieldProps('password')}
               className={clsx(
-                'form-control bg-transparent',
+                'form-control bg-transparent placeholder-gray',
                 {
                   'is-invalid': formik.touched.password && formik.errors.password,
                 },
@@ -259,7 +263,7 @@ export function Registration() {
           autoComplete='off'
           {...formik.getFieldProps('changepassword')}
           className={clsx(
-            'form-control bg-transparent',
+            'form-control bg-transparent placeholder-gray',
             {
               'is-invalid': formik.touched.changepassword && formik.errors.changepassword,
             },
@@ -280,19 +284,19 @@ export function Registration() {
 
       {/* begin::Form group */}
       <div className='fv-row mb-8'>
-        <label className='form-check form-check-inline' htmlFor='kt_login_toc_agree'>
+        <label className='form-check form-check-inline mt-4 fw-bold' htmlFor='kt_login_toc_agree'>
           <input
-            className='form-check-input'
+            className='form-check-input '
             type='checkbox'
             id='kt_login_toc_agree'
             {...formik.getFieldProps('acceptTerms')}
           />
           <span>
-            I Accept the{' '}
+            <span className={'text-gray-700'}>I Accept the{' '}</span>
             <a
               href='https://keenthemes.com/metronic/?page=faq'
               target='_blank'
-              className='ms-1 link-primary'
+              className='ms-1 link-primary '
             >
               Terms
             </a>
@@ -317,7 +321,7 @@ export function Registration() {
           className='btn btn-lg btn-primary w-100 mb-5'
           disabled={formik.isSubmitting || !formik.isValid || !formik.values.acceptTerms}
         >
-          {!loading && <span className='indicator-label'>Submit</span>}
+          {!loading && <span className='indicator-label'>Continue</span>}
           {loading && (
             <span className='indicator-progress' style={{display: 'block'}}>
               Please wait...{' '}

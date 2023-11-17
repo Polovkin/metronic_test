@@ -1,7 +1,8 @@
 import {FC} from "react";
 import styles from '../styles/auth-selector.module.scss'
 import * as classNames from "classnames";
-const steps = [
+
+export const steps = [
     {
         title: 'Account Type',
         description: 'Select your account type',

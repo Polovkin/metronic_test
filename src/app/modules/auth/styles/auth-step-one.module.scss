@@ -2,10 +2,31 @@
   cursor: pointer;
 
   padding: 24px;
-
+  display: flex;
+  align-items: center;
   border-radius: 8px;
   border: 1px dashed #D8D8E5;
   background: #FFF;
+}
+
+.icon {
+  margin-right: 16px;
+  filter: invert(0.5);
+}
+
+.cartTitle {
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px; /* 106.667% */
+}
+.cartDescription {
+  color: #7E8299;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px;
 }
 
 .cardWrapper {
@@ -25,6 +46,3 @@
   }
 }
 
-.icon {
-  filter: invert(0.5);
-}

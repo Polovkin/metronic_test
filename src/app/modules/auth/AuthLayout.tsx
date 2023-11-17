@@ -1,10 +1,11 @@
 
-import {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { Link} from 'react-router-dom'
 import {toAbsoluteUrl} from '../../../_metronic/helpers'
-import AuthStesSelector from "./components/AuthStesSelector.tsx";
+import AuthStesSelector, {steps} from "./components/AuthStesSelector.tsx";
 import AuthStepOne from "./components/AuthStepOne.tsx";
 import AuthStepTwo from "./components/AuthStepTwo.tsx";
+import AuthLastStep from "./components/AuthLastStep";
 
 
 const AuthLayout = () => {
@@ -19,9 +20,11 @@ const AuthLayout = () => {
         case 0:
             return <AuthStepOne setCurrentStep={handleNextStep}/>
         case 1:
-            return <AuthStepTwo/>
+            return <AuthStepTwo setCurrentStep={handleNextStep}/>
+        case steps.length - 1:
+            return (<AuthLastStep />)
         default:
-            return <div>error</div>
+            return <button className="btn btn-primary" onClick={()=>setCurrentStep(currentStep + 1)}>Continue</button>
     }
   }
 
@@ -44,7 +47,7 @@ const AuthLayout = () => {
         {/* begin::Form */}
         <div className='d-flex flex-center flex-column flex-lg-row-fluid'>
           {/* begin::Wrapper */}
-          <div className='w-lg-500px p-10'>
+          <div className='w-lg-540px p-10'>
             {renderStep()}
           </div>
           {/* end::Wrapper */}

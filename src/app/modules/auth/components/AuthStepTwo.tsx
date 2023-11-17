@@ -1,10 +1,13 @@
-
 import {Registration} from "./Registration.tsx";
+import {FC} from "react";
 
-const AuthStepTwo = () => {
+type Props = {
+    setCurrentStep: (index: number) => void
+}
+const AuthStepTwo: FC<Props> = ({setCurrentStep}) => {
     return (
         <div>
-            <Registration/>
+            <Registration setCurrentStep={setCurrentStep}/>
         </div>
     )
 }

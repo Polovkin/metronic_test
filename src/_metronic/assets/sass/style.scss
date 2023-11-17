@@ -12,3 +12,7 @@
 // Layout
 @import "./core/layout/base/layout";
 @import "layout/layout";
+
+.text-gray-700 {
+    color: $gray-700 !important;
+}
