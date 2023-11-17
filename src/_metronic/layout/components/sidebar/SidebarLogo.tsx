@@ -78,7 +78,7 @@ const SidebarLogo = (props: PropsType) => {
         />
       </Link>
 
-      {(appSidebarDefaultMinimizeDesktopEnabled || appSidebarDefaultCollapseDesktopEnabled) && (
+      {/*{(appSidebarDefaultMinimizeDesktopEnabled || appSidebarDefaultCollapseDesktopEnabled) && (
         <div
           ref={toggleRef}
           id='kt_app_sidebar_toggle'
@@ -93,7 +93,7 @@ const SidebarLogo = (props: PropsType) => {
         >
           <KTIcon iconName='black-left-line' className='fs-3 rotate-180 ms-1' />
         </div>
-      )}
+      )}*/}
     </div>
   )
 }

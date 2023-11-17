@@ -14,6 +14,8 @@ export type User = {
     label: string
     state: string
   }
+  link?: string;
+  source?: string;
 }
 
 export type UsersQueryResponse = Response<Array<User>>

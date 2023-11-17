@@ -14,6 +14,7 @@ import {
 import {getUsers} from './_requests'
 import {User} from './_models'
 import {useQueryRequest} from './QueryRequestProvider'
+import _mockUsers from "./_mock-users";
 
 const QueryResponseContext = createResponseContext<User>(initialQueryResponse)
 const QueryResponseProvider: FC<WithChildren> = ({children}) => {
@@ -34,7 +35,8 @@ const QueryResponseProvider: FC<WithChildren> = ({children}) => {
   } = useQuery(
     `${QUERIES.USERS_LIST}-${query}`,
     () => {
-      return getUsers(query)
+      //return getUsers(query)
+      return Promise.resolve({data:_mockUsers})
     },
     {cacheTime: 0, keepPreviousData: true, refetchOnWindowFocus: false}
   )

@@ -1,10 +1,10 @@
-import style from '../styles/dashboard.module.css'
+
+import {UsersListWrapper} from "../../apps/user-management/users-list/UsersList";
 
 const DashboardTable = () => {
     return (
-        <div className={style.table}>
-            table
-        </div>
+
+        <UsersListWrapper/>
     )
 }
 

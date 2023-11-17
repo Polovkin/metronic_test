@@ -10,7 +10,7 @@ const UsersListToolbar = () => {
 
   return (
     <div className='d-flex justify-content-end' data-kt-user-table-toolbar='base'>
-      <UsersListFilter />
+
 
       {/* begin::Export */}
       <button type='button' className='btn btn-light-primary me-3'>
@@ -18,12 +18,12 @@ const UsersListToolbar = () => {
         Export
       </button>
       {/* end::Export */}
-
+        <UsersListFilter />
       {/* begin::Add user */}
-      <button type='button' className='btn btn-primary' onClick={openAddUserModal}>
+     {/* <button type='button' className='btn btn-primary' onClick={openAddUserModal}>
         <KTIcon iconName='plus' className='fs-2' />
         Add User
-      </button>
+      </button>*/}
       {/* end::Add user */}
     </div>
   )
