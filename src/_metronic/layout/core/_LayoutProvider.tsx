@@ -60,7 +60,7 @@ const LayoutProvider: FC<WithChildren> = ({children}) => {
   const [cssVariables, setCSSVariables] = useState(LayoutSetup.cssVariables)
 
   const setLayout = (_themeConfig: Partial<ILayout>) => {
-    enableSplashScreen()
+    //enableSplashScreen()
     const bodyClasses = Array.from(document.body.classList)
     bodyClasses.forEach((cl) => document.body.classList.remove(cl))
     const updatedConfig = LayoutSetup.updatePartialConfig(_themeConfig)
@@ -69,7 +69,7 @@ const LayoutProvider: FC<WithChildren> = ({children}) => {
     setAttributes(LayoutSetup.attributes)
     setCSSVariables(LayoutSetup.cssVariables)
     setTimeout(() => {
-      disableSplashScreen()
+      //disableSplashScreen()
     }, 500)
   }
 
