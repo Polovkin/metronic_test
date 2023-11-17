@@ -2,6 +2,8 @@ import {FC} from 'react'
 import {useIntl} from 'react-intl'
 import {PageTitle} from '../../../_metronic/layout/core'
 import style from './dashboard.module.scss'
+import DashboardCard from "../../modules/dashboard/components/DashboardCard";
+import DashboardTable from "../../modules/dashboard/components/DashboardTable";
 const cards = [
     {
         number: 252,
@@ -32,17 +34,11 @@ const cards = [
 const DashboardPage: FC = () => (
   <div>
        <div className={style.grid}>
-           {cards.map(({number,icons,color,text}) =>
-               <div className={style.card} style={{borderBottomColor: color}}>
-                   <div className={style.cardTitleWrap}>
-                       <h4 className={style.cartTitle}>{number}</h4>
-                       <img className={style.image} src={`/media/icons/menu/${icons}`} alt='' />
-                   </div>
-                   <p className={style.cardDescription}>{text}</p>
-                </div>
+           {cards.map((card) =>
+               <DashboardCard key={card.text} {...card} />
            )}
        </div>
-      <div className="my_datatable" id="kt_datatable"></div>
+      <DashboardTable/>
   </div>
 )
 
