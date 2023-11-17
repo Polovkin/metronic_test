@@ -20,9 +20,8 @@ const Navbar = () => {
 
       <div className={clsx('app-navbar-item', itemClass)}>
         <div className={clsx('position-relative', btnClass)} id='kt_drawer_chat_toggle'>
-          <KTIcon iconName='notification' className={btnIconClass} />
-            <SVG src={toAbsoluteUrl('')}/>
-            <div className={classNames('notification-dot d-flex bg-danger position-absolute translate-middle rounded-circle text-white top-0 start-50')}>
+            <SVG src={toAbsoluteUrl('/media/icons/menu/notification.svg')}/>
+            <div className={classNames('notification-dot d-flex bg-danger position-absolute translate-middle rounded-circle text-white')}>
               <span>5</span>
             </div>
         </div>

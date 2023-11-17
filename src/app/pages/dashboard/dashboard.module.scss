@@ -1,0 +1,45 @@
+
+
+.grid {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(4,1fr);
+}
+.card {
+  border-radius: 12px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: transparent;
+ // border-bottom: 3px solid var(--info-info, #7239EA);
+  background: white;
+  padding: 28px;
+}
+
+.cartTitle {
+  color: #181C32;
+  font-size: 34px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 34px; /* 100% */
+  letter-spacing: -0.68px;
+
+}
+
+.cardDescription {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px; /* 100% */
+  margin-bottom: 0;
+}
+
+.cardTitleWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.image {
+  border-radius: 4px;
+}

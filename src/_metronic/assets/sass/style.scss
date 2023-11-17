@@ -17,12 +17,17 @@
     color: $gray-700 !important;
 }
 
+.bg-gray {
+    background: #F9F9F9 !important;
+}
+
 .notification-dot {
+    left: 30px;
     justify-content: center;
     align-items: center;
     width: 18px;
     height: 18px;
-    right: 0;
+    top: 5px;
     span {
         font-size: 10px;
         font-style: normal;
@@ -32,3 +37,4 @@
         left: 1px;
     }
 }
+
