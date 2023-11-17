@@ -1,50 +1,36 @@
 import clsx from 'clsx'
 import {KTIcon, toAbsoluteUrl} from '../../../helpers'
-import {HeaderNotificationsMenu, HeaderUserMenu, Search, ThemeModeSwitcher} from '../../../partials'
+import {HeaderUserMenu, Search} from '../../../partials'
 import {useLayout} from '../../core'
+import * as classNames from "classnames";
+import SVG from "react-inlinesvg";
 
 const itemClass = 'ms-1 ms-md-4'
 const btnClass =
   'btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-35px h-35px'
-const userAvatarClass = 'symbol-35px'
+const userAvatarClass = 'symbol-40px rounded-circle overflow-hidden'
 const btnIconClass = 'fs-2'
 
 const Navbar = () => {
   const {config} = useLayout()
   return (
     <div className='app-navbar flex-shrink-0'>
-      <div className={clsx('app-navbar-item align-items-stretch', itemClass)}>
-        <Search />
-      </div>
 
-      <div className={clsx('app-navbar-item', itemClass)}>
-        <div id='kt_activities_toggle' className={btnClass}>
-          <KTIcon iconName='chart-simple' className={btnIconClass} />
-        </div>
-      </div>
 
-      <div className={clsx('app-navbar-item', itemClass)}>
-        <div
-          data-kt-menu-trigger="{default: 'click'}"
-          data-kt-menu-attach='parent'
-          data-kt-menu-placement='bottom-end'
-          className={btnClass}
-        >
-          <KTIcon iconName='element-plus' className={btnIconClass} />
-        </div>
-        <HeaderNotificationsMenu />
-      </div>
 
       <div className={clsx('app-navbar-item', itemClass)}>
         <div className={clsx('position-relative', btnClass)} id='kt_drawer_chat_toggle'>
-          <KTIcon iconName='message-text-2' className={btnIconClass} />
-          <span className='bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink' />
+          <KTIcon iconName='notification' className={btnIconClass} />
+            <SVG src={toAbsoluteUrl('')}/>
+            <div className={classNames('notification-dot d-flex bg-danger position-absolute translate-middle rounded-circle text-white top-0 start-50')}>
+              <span>5</span>
+            </div>
         </div>
       </div>
 
-      <div className={clsx('app-navbar-item', itemClass)}>
-        <ThemeModeSwitcher toggleBtnClass={clsx('btn-active-light-primary btn-custom')} />
-      </div>
+        <div className={clsx('app-navbar-item align-items-stretch', itemClass)}>
+            <Search />
+        </div>
 
       <div className={clsx('app-navbar-item', itemClass)}>
         <div

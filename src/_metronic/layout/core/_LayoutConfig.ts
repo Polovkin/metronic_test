@@ -1,12 +1,12 @@
 import {ILayout} from './_Models'
 
 export const DefaultConfig: ILayout = {
-  layoutType: 'dark-sidebar',
+  layoutType: 'light-sidebar',
   main: {
     componentName: 'main',
     type: 'default',
     pageBgWhite: false,
-    iconType: 'duotone',
+    iconType: 'solid',
   },
   app: {
     general: {
@@ -44,7 +44,7 @@ export const DefaultConfig: ILayout = {
         push: {
           header: true,
           toolbar: true,
-          footer: true,
+          footer: false,
         },
         drawer: {
           enabled: true,
@@ -85,11 +85,6 @@ export const DefaultConfig: ILayout = {
         mobile: false,
       },
       // custom settings,
-      filterButton: true,
-      daterangepickerButton: false,
-      primaryButton: true,
-      primaryButtonLabel: 'Create',
-      primaryButtonModal: 'create-app',
     },
     pageTitle: {
       componentName: 'page-title',

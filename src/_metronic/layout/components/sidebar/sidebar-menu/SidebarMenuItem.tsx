@@ -1,9 +1,10 @@
-import {FC} from 'react'
+import React, {FC} from 'react'
 import clsx from 'clsx'
 import {Link} from 'react-router-dom'
 import {useLocation} from 'react-router'
-import {checkIsActive, KTIcon, WithChildren} from '../../../../helpers'
+import {checkIsActive, toAbsoluteUrl, WithChildren} from '../../../../helpers'
 import {useLayout} from '../../../core'
+import SVG from "react-inlinesvg";
 
 type Props = {
   to: string
@@ -37,7 +38,8 @@ const SidebarMenuItem: FC<Props & WithChildren> = ({
         {icon && app?.sidebar?.default?.menu?.iconType === 'svg' && (
           <span className='menu-icon'>
             {' '}
-            <KTIcon iconName={icon} className='fs-2' />
+            <SVG src={toAbsoluteUrl(icon)} />
+           {/* <KTIcon iconName={icon} className='fs-2' />*/}
           </span>
         )}
         {fontIcon && app?.sidebar?.default?.menu?.iconType === 'font' && (

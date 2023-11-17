@@ -9,7 +9,7 @@ import AuthLastStep from "./components/AuthLastStep";
 
 
 const AuthLayout = () => {
-  const [currentStep, setCurrentStep] = useState(0)
+  const [currentStep, setCurrentStep] = useState(4)
 
   const handleNextStep = (index: number) => {
     setCurrentStep(index)
